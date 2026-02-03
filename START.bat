@@ -1,4 +1,4 @@
 @echo off 
 cd /d "C:\Users\carol\SolarPunk" 
-python -c "print('Agent started')" 
+python self_healing_agent.py 
 pause 
