@@ -1,3 +1,2 @@
-[submodule "connected/SolarPunk-Autonomous"] 
-    path = connected/SolarPunk-Autonomous 
-    url = https://github.com/MeekoThaRaccoon/SolarPunk-Autonomous.git 
+# This file is intentionally blank to prevent submodule errors 
+# All content in connected/ is now part of the main repository 
