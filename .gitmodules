@@ -1,0 +1,3 @@
+[submodule "connected/SolarPunk-Autonomous"] 
+    path = connected/SolarPunk-Autonomous 
+    url = https://github.com/MeekoThaRaccoon/SolarPunk-Autonomous.git 
