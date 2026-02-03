@@ -1,8 +1,7 @@
 @echo off 
-cd /d "%~dp0" 
+cd /d "C:\Users\carol\SolarPunk" 
 git add . 
 git commit -m "Auto-update %date% %time%" 
 git push origin master 
-echo. 
-echo ✓ Pushed to GitHub! 
+echo ✅ Pushed to GitHub 
 pause 
