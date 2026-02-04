@@ -1,0 +1,47 @@
+﻿name: "Auto Fix Everything"
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight
+  workflow_dispatch:  # Manual trigger button
+
+jobs:
+  auto-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Fix ALL dependencies
+        run: |
+          npm ci || npm install --force
+          npx npm-check-updates -u  # Update ALL packages
+          npm audit fix --force
+          
+      - name: Auto-fix code with AI
+        uses: 1set/gpt-pull-request-review@v2.0.4
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          mode: "fix"  # Actually fixes code
+          
+      - name: Create fix PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "ðŸ¤– Auto-fix: Dependencies, security, and code"
+          body: |
+            ## AI Auto-Fix Results
+            - âœ… Updated outdated dependencies
+            - âœ… Fixed security vulnerabilities
+            - âœ… Applied AI-suggested code fixes
+            - âœ… Automated by SolarPunk AI System
+          branch: "ai-auto-fix"
+          delete-branch: true
