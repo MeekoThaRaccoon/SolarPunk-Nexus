@@ -1,0 +1,21 @@
+# UI-TARS Preset Configuration for Ollama
+version: "1.0"
+provider: "huggingface"
+model:
+  name: "bakllava"  # or "llama3.2-vision"
+  type: "vision"
+  context_length: 2048
+  max_tokens: 1024
+endpoint:
+  base_url: "http://localhost:11434/v1"
+  api_key: "ollama"
+  timeout: 30000
+features:
+  vision: true
+  reasoning: true
+  streaming: false
+  multimodal: true
+parameters:
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 40
