@@ -5,7 +5,7 @@ echo.
 echo [1] RESTORING GIT REPOSITORY...
 cd /d "C:\Users\carol\SolarPunk"
 git init
-git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
+git remote add origin https://github.com/MeekoThaRaccoon/SolarPunk-Nexus.git
 echo ✓ Git initialized (REMEMBER TO ADD YOUR GITHUB URL ABOVE)
 
 echo [2] DOWNLOADING AGENT FILES...
